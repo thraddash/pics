@@ -13,25 +13,37 @@ class SearchBar extends React.Component {
     // disable page from automatically submitting or refreshing
     // add onSubmit event handler with reference callback method this.onFormSubmit
     // add event.preventDefault()
-
-    // add arrow function, automatically bind the value 
-    // of this, so that it is always equal to instance of the SearchBar
     
-    // Using constructor, bind onFormSubmit function
+    // Solution 1: Using constructor, bind onFormSubmit function
+    /*
     constructor(props) {
       super(props);
       this.onFormSubmit = this.onFormSubmit.bind(this);
     }
-    //onFormSubmit = (event) => {
+    /*
+
+    // Solution 2: add arrow function, automatically bind the value 
+    // of this, so that it is always equal to instance of the SearchBar
+    /*
+    onFormSubmit = (event) => {
+      event.preventDefault();
+      console.log(this.state.term);
+    }
+    */
+   
+    /* Solution 3: pass arrow function directly into onSubmit callback
+    {(event) => this.onFormSubmit(event) } gets invoke and pass to event object
+    */
+
     onFormSubmit(event) {
       event.preventDefault();
       console.log(this.state.term);
     }
-
+    
     render() {
         return (
           <div className="ui segment">
-              <form onSubmit={this.onFormSubmit} className="ui form">
+              <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form">
                   <div className="field">
                     <label>Image Search</label>
                     <input type="text" 
