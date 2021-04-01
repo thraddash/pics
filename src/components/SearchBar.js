@@ -13,8 +13,13 @@ class SearchBar extends React.Component {
     // disable page from automatically submitting or refreshing
     // add onSubmit event handler with reference callback method this.onFormSubmit
     // add event.preventDefault()
-    onFormSubmit(event) {
+
+    // add arrow function, automatically bind the value 
+    // of this, so that it is always equal to instance of the SearchBar
+
+    onFormSubmit = (event) => {
       event.preventDefault();
+      console.log(this.state.term);
     }
 
     render() {
