@@ -3,7 +3,7 @@ import React from 'react';
 // Class base component
 
 class SearchBar extends React.Component {
-    state = { term: '' };
+    state = { term: 'hello ' };
     // refactor, store value in component than in DOM
     render() {
         return (
