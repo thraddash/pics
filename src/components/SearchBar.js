@@ -3,7 +3,7 @@ import React from 'react';
 // Class base component
 
 class SearchBar extends React.Component {
-    state = { term: 'hello ' };
+    state = { term: '' };
     // refactor, store value in component than in DOM
     render() {
         return (
@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
                     <label>Image Search</label>
                     <input type="text" 
                       value = {this.state.term} 
-                      onChange={e => this.setState({ term: e.target.value})} 
+                      onChange={e => this.setState({ term: e.target.value.toUpperCase() })} 
                     />
                   </div>
               </form>
