@@ -16,8 +16,14 @@ class SearchBar extends React.Component {
 
     // add arrow function, automatically bind the value 
     // of this, so that it is always equal to instance of the SearchBar
-
-    onFormSubmit = (event) => {
+    
+    // Using constructor, bind onFormSubmit function
+    constructor(props) {
+      super(props);
+      this.onFormSubmit = this.onFormSubmit.bind(this);
+    }
+    //onFormSubmit = (event) => {
+    onFormSubmit(event) {
       event.preventDefault();
       console.log(this.state.term);
     }
