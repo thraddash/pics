@@ -32,10 +32,10 @@ class SearchBar extends React.Component {
     */
    
     /* Solution 3: pass arrow function directly into onSubmit callback
-    {(event) => this.onFormSubmit(event) } gets invoke and pass to event object
+    <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form"> gets invoke and pass to event object
     */
 
-    onFormSubmit(event) {
+    onFormSubmit = (event) => {
       event.preventDefault();
       console.log(this.state.term);
     }
@@ -43,7 +43,7 @@ class SearchBar extends React.Component {
     render() {
         return (
           <div className="ui segment">
-              <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form">
+              <form onSubmit={this.onFormSubmit} className="ui form">
                   <div className="field">
                     <label>Image Search</label>
                     <input type="text" 
