@@ -1,13 +1,10 @@
 import React from 'react';
-import axios from 'axios';
+import unsplash from '../api/unsplash';
 import SearchBar from './SearchBar';
-
-require('dotenv').config({ path: './../../.env' })
 
 // refactor into class base component
 // take onSearchSubmit method and pass it down to SearchBar as a prop
 // prop can only go down
-const api_key = process.env.REACT_APP_UNSPLASH_KEY;
 
 // option 1: chaining .then() function (asynchronous)
 // Axios returns an object call promise. 
@@ -24,12 +21,10 @@ class App extends React.Component {
   // create new state with images property, empty array
   state = { images: [] };
 
+  // turn onSearchSubmit() into arrow function
   onSearchSubmit = async (term) => {
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
-      params: { query: term },
-      headers: {
-        Authorization: 'Client-ID ' + api_key
-      }  
+    const response = await unsplash.get('/search/photos', {
+      params: { query: term }
     });
     // pass list of results to state object "images", causing component to re-render
     // print out images count 
