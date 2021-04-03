@@ -16,6 +16,8 @@ class App extends React.Component {
       headers: {
         Authorization: 'Client-ID ' + api_key
       }  
+    }).then((response) => {
+      console.log(response.data.results);
     });
   }
 
