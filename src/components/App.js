@@ -24,7 +24,7 @@ class App extends React.Component {
   // create new state with images property, empty array
   state = { images: [] };
 
-  async onSearchSubmit(term) {
+  onSearchSubmit = async (term) => {
     const response = await axios.get('https://api.unsplash.com/search/photos', {
       params: { query: term },
       headers: {
@@ -33,7 +33,6 @@ class App extends React.Component {
     });
     // pass list of results to state object "images", causing component to re-render
     // print out images count 
-    console.log(this);
     this.setState({ images: response.data.results });
   }
 
