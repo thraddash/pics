@@ -9,6 +9,13 @@ require('dotenv').config({ path: './../../.env' })
 // prop can only go down
 const api_key = process.env.REACT_APP_UNSPLASH_KEY;
 
+// option 1 chaining .then() function
+// Axios returns an object call promise. 
+// a promise will give a notification when some amount of work is completed like a request
+// To get an indication that the request is completed use .then() function
+// pass an arrow function inside .then function, so a callback will be invoked with whatever data
+// from unsplash api  
+
 class App extends React.Component {
   onSearchSubmit(term) {
     axios.get('https://api.unsplash.com/search/photos', {
