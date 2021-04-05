@@ -38,7 +38,7 @@ class App extends React.Component {
         <SearchBar onSubmit={this.onSearchSubmit} />
         <ImageList images={this.state.images} />
       </div>
-    )
+    );
     }
 }
 
