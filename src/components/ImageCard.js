@@ -13,7 +13,15 @@ class ImageCard extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.imageRef);
+// create event listner, and a callback this.setSpan
+// callback must be found or it will be undefine, use arrow function in setSpans 
+// console.log(this.imageRef);
+// console.log(this.imageRef.current.clientHeight);
+        this.imageRef.current.addEventListener('load',  this.setSpans);
+    }
+
+    setSpans = () =>  {
+        console.log(this.imageRef.current.clientHeight)
     }
 
     render(){
