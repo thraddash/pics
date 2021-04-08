@@ -1,5 +1,5 @@
 import axios from 'axios';
-require('dotenv').config({ path: './../../.env' })
+require('dotenv').config({ path: '../../../.env' })
 
 const api_key = process.env.REACT_APP_UNSPLASH_KEY;
 // create default settings for axios instance

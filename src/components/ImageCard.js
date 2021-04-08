@@ -72,3 +72,4 @@ interact with DOM element to make reference to JSX element <img , create a Ref i
 this.imageRef = React.createRef();
 wire it up to an individual element by passing it as a ref property
 <img ref={this.imageRef}
+*/
